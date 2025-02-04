@@ -14,6 +14,13 @@ header {
 footer {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #b3a99b; /* Darker version of the background color */
+    position: fixed;
+    bottom: 0; /* Fix to bottom of the screen */
+    left: 0;
+    height: 60px;
 }
 
 /* Style the banner inside the header */
@@ -74,14 +81,6 @@ body {
     --border-radius: 4px;
     margin: 0;
     height: 100vh;
-
-    //background-image: url('../src/Images/Wallpaper1.png');
-    // display: flex; /* Commented out display flex to avoid layout issues */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* font-size: 18px; */
-    /* background: url(#); */
-    /* background-size: cover; */
 }
 
 .homePage {
@@ -248,7 +247,6 @@ body {
     text-decoration: none;
 }
 
-
 .dropdownMenu a:hover {
     background-color: #f1f1f1; /* Highlight menu item on hover */
 }
@@ -271,28 +269,26 @@ body {
 
 .printsMain ul {
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    list-style: none; /* Remove the default list markers */
+    display: grid; /* Updated to display as grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between grid items */
+    justify-items: center; /* Center align grid items */
 }
 
 .printsMain li {
-    width: 25%;
-    display: inherit;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
     background-color: #e6e3de;
+    padding: 10px; /* Add padding around each item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better appearance */
+    border-radius: 8px; /* Add rounded corners */
+    text-align: center; /* Center align the text */
 }
 
 .printsMain img {
-    width: 90%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    border: 0;
+    width: 100%; /* Make images responsive */
+    height: auto;
+    border-radius: 8px; /* Match the border radius */
+    margin-bottom: 10px; /* Space between image and description */
 }
 
 .printsHeader {
@@ -308,6 +304,7 @@ body {
 .printsHeader img {
     height: 60px;
 }
+
 .printsHeader ul {
     padding: 0rem 1rem;
     display: flex;
@@ -316,9 +313,11 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
 .printsHeader li, .printsHeader li div {
     display: inline; 
 }
+
 .printsHeader a {
     color: inherit;
     text-decoration: none; /* Remove underline from the icons */
@@ -327,12 +326,15 @@ body {
 .logoIcon {
     height: 60px;
 }
+
 .searchIconContainer {
     width: min-content;
 }
+
 .profileIconContainer {
     width: min-content;
 }
+
 .cartIconContainer {
     width: min-content;
 }
@@ -346,38 +348,11 @@ body {
 } */
 
 .printsFooter {
-    background-color: blue;
+    background-color: #b3a99b; /* Darker version of the background color */
 }
 
 .spacerMain {
     height: 10rem;
 }
 
-
-.loginMenu {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-logoIcon {
-    margin: 0;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    list-style-type: none;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-}
-
-.login-logoIcon li{
-    display: inline;
-}
-.login-logoIcon img{
-    height: 60px;
-}
-
+/[_{{{CITATION{{{_1{](https://github.com/askarrizvi/n-abl/tree/098e45ff7ecd0dd821bf2a63e0beb27d6085ea15/public%2Fstylesheets%2Fmain.js)[_{{{CITATION{{{_2{](https://github.com/abhinav-dholi/loginpageisaada/tree/2c484fdef06505281391d1ace7b038e053e3ef1b/index.php)

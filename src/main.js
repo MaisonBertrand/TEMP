@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutLink = document.querySelector(".dropdownMenu a[href='#']:nth-of-type(3)");
     const bodyClass = document.querySelector("#mainBody");
     const mainContainer = document.querySelector("#mainContainer");
-    const prints = document.querySelector(".prints");
+    const prints = document.querySelector(".printsMain");
     const profileIconContainer = document.querySelector(".profileIconContainer");
     const dropdownMenu = document.querySelector(".dropdownMenu");
     const loginLogoIcon = document.querySelector(".login-logoIcon")
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log('Login successful');
           // Update UI on successful login
           mainContainer.classList.add("form--hidden");
-          loginLogoIcon.classList.add("form--hidden");
+          //loginLogoIcon.classList.add("form--hidden");
           printsFooter.classList.remove("form--hidden");
           prints.classList.remove("form--hidden");
           loginButton.textContent = 'Profile';

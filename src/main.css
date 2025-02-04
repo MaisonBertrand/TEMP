@@ -1,0 +1,383 @@
+html {
+    background-color: #e6e3de;
+}
+
+/* Make sure the header is fixed at the top */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Occupies the entire width of the page */
+    z-index: 1000; /* Ensure the header stays on top of other elements */
+}
+
+footer {
+    display: flex;
+    width: 100%;
+}
+
+/* Style the banner inside the header */
+.banner {
+    display: flex;
+    justify-content: space-between; /* Align logo and navigation on opposite sides */
+    align-items: center;
+    background-color: #e6e3de; /* You can change the background color as needed */
+    padding: 10px 20px;
+    width: 100%;
+}
+
+/* Logo styling */
+.banner .logo {
+    color: white; /* Set logo text color */
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+/* Navigation menu styling */
+nav.desktop ul {
+    list-style: none; /* Remove default list styling */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Horizontally align the menu items */
+    flex-direction: row; /* Align items in a row */
+}
+
+nav.desktop ul li {
+    margin-left: 20px; /* Add space between each menu item */
+}
+
+nav.desktop ul li a {
+    color: white; /* Set menu link color */
+    text-decoration: none; /* Remove underline from the links */
+    font-size: 18px; /* Adjust the font size as needed */
+}
+
+/* Icon styling inside the menu */
+nav.desktop ul li a .icon {
+    width: 16px; /* Adjust the size of the icon */
+    height: auto;
+    vertical-align: middle; /* Align the icon with the text */
+}
+
+/* Add some padding to the body to prevent content from going under the fixed header */
+body {
+    padding-top: 60px; /* Adjust this based on the height of the header */
+    padding-bottom: 60px;
+}
+
+body {
+    --color-primary: #654a38;
+    --color-primary-dark: #544235;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+    margin: 0;
+    height: 100vh;
+
+    //background-image: url('../src/Images/Wallpaper1.png');
+    // display: flex; /* Commented out display flex to avoid layout issues */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* font-size: 18px; */
+    /* background: url(#); */
+    /* background-size: cover; */
+}
+
+.homePage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.homePage li {
+    list-style-type: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #e3e0dc;
+}
+
+.container,
+.form__input,
+.form__button {
+    font: 500 1rem 'Quicksand', sans-serif;
+}
+
+.container.dashboard--active {
+    width: auto;
+    max-width: none;
+    margin: inherit;
+    padding: unset;
+}
+
+.dashboard--active {
+    display: grid;
+    align-items: stretch;
+}
+
+.form--hidden {
+    display: none;
+}
+
+.form > *:first-child {
+    margin-top: 0;
+}
+
+.form > *:last-child {
+    margin-bottom: 0;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message--success {
+    color: var(--color-success);
+}
+
+.form__message--error {
+    color: var(--color-error);
+}
+
+.form__input-group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form__input--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form__button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form__button: {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+
+/* homepage */
+
+/* Profile icon container */
+.profileIconContainer {
+    position: relative; /* Ensure the dropdown is positioned relative to the profile icon */
+}
+
+/* Initial state of the dropdown menu: hidden */
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position the menu below the icon */
+    right: 0; /* Align the right edge of the menu with the right edge of the icon */
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure the menu is on top of other elements */
+}
+
+/* Styling for dropdown menu items */
+.dropdownMenu a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.dropdownMenu a:hover {
+    background-color: #f1f1f1; /* Highlight menu item on hover */
+}
+
+/* Show the dropdown menu when hovering over the profile icon container */
+.profileIconContainer:hover .dropdownMenu {
+    display: block;
+}
+
+.prints {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    border-radius: unset;
+}
+
+.printsMain {
+    margin: 0rem 3rem;
+}
+
+.printsMain ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.printsMain li {
+    width: 25%;
+    display: inherit;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e6e3de;
+}
+
+.printsMain img {
+    width: 90%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.printsHeader {
+    display: flex;
+    background-color: #e6e3de;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Added to vertically center items in header */
+    border-radius: var(--border-radius);
+    outline: 1px solid black;
+}
+
+.printsHeader img {
+    height: 60px;
+}
+.printsHeader ul {
+    padding: 0rem 1rem;
+    display: flex;
+    list-style-type: none;
+    gap: 3rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.printsHeader li, .printsHeader li div {
+    display: inline; 
+}
+.printsHeader a {
+    color: inherit;
+    text-decoration: none; /* Remove underline from the icons */
+}
+
+.logoIcon {
+    height: 60px;
+}
+.searchIconContainer {
+    width: min-content;
+}
+.profileIconContainer {
+    width: min-content;
+}
+.cartIconContainer {
+    width: min-content;
+}
+
+/* Ensure icons are side by side */
+/* Adjust spacing between icons as needed */
+
+/* .printsHeader div:last-child {
+    display: flex; 
+    gap: 20px; 
+} */
+
+.printsFooter {
+    background-color: blue;
+}
+
+.spacerMain {
+    height: 10rem;
+}
+
+
+.loginMenu {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logoIcon {
+    margin: 0;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+}
+
+.login-logoIcon li{
+    display: inline;
+}
+.login-logoIcon img{
+    height: 60px;
+}
+

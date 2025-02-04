@@ -1,0 +1,73 @@
+
+Test user
+
+TestUsername
+TestEmail@gmail.com
+Password123
+Password123
+
+so far I need node.js, Mangodb and the packages below.
+
+start the server with the following code
+
+open Command Prompt
+cd E:
+cd CODE\Practice\login-signup-form-1
+mongod
+cd src
+node server.js
+
+
+installs the following Node.js packages, which are commonly used in building web applications, particularly with Express.js and MongoDB:
+The command npm install express mongoose bcrypt jsonwebtoken body-parser 
+
+npm init -y
+npm install express mongoose bcrypt jsonwebtoken body-parser
+npm install cors
+
+https://www.mongodb.com/try/download/community
+
+Summary:
+This command installs packages that are commonly used to:
+
+Set up a web server with Express.
+Connect the app to a MongoDB database with Mongoose.
+Implement secure password hashing with bcrypt.
+Use JWTs for authentication with jsonwebtoken.
+Parse incoming request data with body-parse
+
+
+Package: express
+Purpose: A minimalist web framework for Node.js, used to create APIs and web applications.
+Use Case: Routing, handling requests and responses, and creating middleware in your app.
+Mongoose:
+
+Package: mongoose
+Purpose: An ODM (Object Data Modeling) library for MongoDB and Node.js. It helps manage the database and perform CRUD (Create, Read, Update, Delete) operations using a schema-based model.
+Use Case: Connecting your Node.js app to MongoDB and defining models for structured data.
+bcrypt:
+
+Package: bcrypt
+Purpose: A library used to hash and salt passwords securely. It’s commonly used for user authentication systems to securely store passwords.
+Use Case: Password hashing for secure storage and verification during login.
+jsonwebtoken:
+
+Package: jsonwebtoken
+Purpose: A library used to sign and verify JSON Web Tokens (JWTs). JWTs are often used for authentication and session management in web applications.
+Use Case: Generating and verifying tokens for user authentication and secure access to resources.
+body-parser:
+
+Package: body-parser
+Purpose: A middleware for parsing incoming request bodies in a middleware before your handlers. It helps extract data from requests (e.g., JSON or form data).
+Use Case: Handling form submissions or incoming JSON data in requests.
+
+
+Step 4: Generate JWT Secret Key
+Open Terminal/Command Prompt: Run the following Node.js script to generate a random string for your JWT secret key4
+.
+
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+Copy the Generated Key: This will print a random string to the console4
+. Copy this string and use it as your JWT secret key in your application4
+.

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login / Sign Up Form</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="./src/main.css">
+</head>
+<body class=" " id="mainBody">
+    <div class="prints">
+        <header class="printsHeader">
+                <div class="logoIcon"><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.png" alt="Bird Logo"></a></div> <!-- Added alt text -->
+            <ul>
+                <li>
+                    <div class="profileIconContainer">
+                        <a class="profileIcon" href="#">Profile</a>
+                        <div class="dropdownMenu" style="display: none;">
+                            <a class="loginButton ">Login</a>
+                            <a href="#">Sign Up</a>
+                            <a href="#" id="logoutButton">Logout</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="searchIconContainer">   <!-- Added href to anchor tags -->
+                        <a class="searchIcon" href="#">Search</a>
+                    </div> 
+                </li>
+                
+                <li>
+                    <div class="cartIconContainer">
+                        <a class="cartIcon" href="#">Cart</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="logoIcon"><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.flipped.png" alt="Bird Logo"></a></div> <!-- Added alt text -->
+        </header>
+        <main class="printsMain">
+            <ul>
+            <!-- Canvases fill here dynamically -->
+            </ul>
+            <div class="spacerMain"></div>
+        </main>
+    </div>
+    <div class="container form--hidden" id="mainContainer">
+        <!--////////////////////////////////////////////   FIX THIS PATH    /////////////////////////////////// -->
+        <!-- Login Form Logo-->
+        <ul class="login-logoIcon">
+            <li>
+                <div><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.png"  alt="Bird Logo"></a></div> 
+            </li>
+            <li>
+                <div><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.flipped.png" alt="Bird Logo"></a></div> 
+            </li>
+        </ul>
+        <!-- Login Form -->
+        <form class="form form--hidden" id="login">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="loginUsername" class="form__input" autofocus placeholder="Username or email">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" id="loginPassword" class="form__input" placeholder="Password"> <!-- Removed duplicate autofocus -->
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a href="#" class="form__link">Forgot your password?</a>
+            </p>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
+        </form>
+        <!-- Sign Up Form -->
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Create Account</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="email" id="signupEmail" class="form__input" placeholder="Email Address"> <!-- Changed type to email -->
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" id="signupPassword" class="form__input" placeholder="Password"> <!-- Removed duplicate autofocus -->
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" id="signupConfirmPassword" class="form__input" placeholder="Confirm password"> <!-- Removed duplicate autofocus -->
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a class="form__link" href="#" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+        </form>
+        <!-- User Dashboard -->
+        <div class="dashboard form--hidden" id="userDashboard">
+            <header>
+                <div class="banner">
+                    <a href="#" class="desktop logo">Website Name</a>
+                    <nav class="desktop">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Settings <img class="icon" src="#" alt="Settings Icon"></a></li> <!-- Added alt text for the icon -->
+                            <li><button class="form__button" id="logoutButton">Logout</button></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="homePage">
+                <ul>
+                    <li>
+                        <div>
+                            <h1>Welcome, <span id="userName"></span>!</h1>
+                            <p>You are now logged in.</p>
+                            <button class="button" id="logoutButton">Logout</button> <!-- Added ID to the button -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./src/main.js"></script>
+</body>
+<footer class="printsFooter ">
+    <p>footer Box</p>
+</footer>
+</html>

@@ -124,34 +124,56 @@
                             <input type="file" id="photoFile" name="photoFile">
                             <input type="text" id="photoName" name="photoName">
                             <button class="upload__button" type="submit">Submit Photo</button><br>
-                            <!-- <br><br><br><br>
-                            <input type="button">
-                            <input type="checkbox">
-                            <input type="color">
-                            <input type="date">
-                            <input type="datetime-local">
-                            <input type="email">
-                            <input type="hidden">
-                            <input type="image">
-                            <input type="month">
-                            <input type="number">
-                            <input type="password">
-                            <input type="radio">
-                            <input type="range">
-                            <input type="reset">
-                            <input type="search">
-                            <input type="tel">
-                            <input type="text">
-                            <input type="time">
-                            <input type="url">
-                            <input type="week"> -->
-                            <!-- <button class="button" id="logoutButton">Logout</button> Added ID to the button -->
+                            <!-- Photo upload form added -->
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <!-- Add the following script to handle the file upload and display the uploaded image dynamically -->
+    <script>
+        document.querySelector(".upload__button").addEventListener("click", async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('photoFile');
+            const fileName = document.getElementById('photoName').value;
+            const formData = new FormData();
+            formData.append('photoFile', fileInput.files[0]);
+            formData.append('photoName', fileName);
+
+            try {
+                const response = await fetch('http://localhost:3001/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    console.log('File uploaded successfully');
+                    displayCanvas({ imageUrl: result.filePath, description: fileName });
+                } else {
+                    console.error(result.message);
+                    setFormMessage(null, 'error', 'Error uploading file');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                setFormMessage(null, 'error', 'Something went wrong. Please try again.');
+            }
+        });
+
+        function displayCanvas(canvas) {
+            const printsMain = document.querySelector('.printsMain ul');
+            const li = document.createElement('li');
+            const img = document.createElement('img');
+            const p = document.createElement('p');
+            img.src = canvas.imageUrl;
+            img.alt = 'Canvas Image';
+            p.textContent = canvas.description;
+            li.appendChild(img);
+            li.appendChild(p);
+            printsMain.appendChild(li);
+        }
+    </script>
     <script src="./src/main.js"></script>
 </body>
 <footer class="printsFooter ">

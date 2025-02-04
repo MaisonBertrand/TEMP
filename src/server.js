@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const multer = require('multer'); // Added multer for file uploads
+const path = require('path'); // Added path module for handling file paths
 
 const app = express();
 
@@ -84,6 +86,38 @@ app.get('/api/canvases', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+// Multer storage configuration
+const storage = multer.diskStorage({
+    destination: '/Images', // Updated destination to src/Images
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage }); // Initialize multer with storage settings
+
+// File upload endpoint
+app.post('/upload', upload.single('photoFile'), async (req, res) => {
+    if (req.file) {
+        const imageUrl = `/Images/${req.file.filename}`; // Updated path
+        const description = req.body.photoName;
+        
+        // Save to the database
+        const canvas = new Canvas({ imageUrl, description });
+        try {
+            await canvas.save();
+            res.json({ filePath: imageUrl });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    } else {
+        res.status(400).send('Error uploading file');
+    }
+});
+
+// Serve static files from the src/Images folder
+app.use('/src/Images', express.static('src/Images'));
 
 app.listen(3001, () => {
     console.log('Server is running on port 3001');

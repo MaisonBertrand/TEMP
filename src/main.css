@@ -1,3 +1,4 @@
+/* Existing styles */
 html {
     background-color: #e6e3de;
 }
@@ -12,16 +13,23 @@ header {
 }
 
 footer {
-    display: flex;
+    position: fixed; /* Ensures footer stays at the bottom */
+    bottom: 0; /* Fixes the footer at the bottom of the page */
     width: 100%;
+    background-color: #654a38; /* Matches the primary color of the theme */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
 /* Style the banner inside the header */
 .banner {
     display: flex;
-    justify-content: space-between; /* Align logo and navigation on opposite sides */
+    justify-content: space-between;
     align-items: center;
-    background-color: #e6e3de; /* You can change the background color as needed */
+    background-color: #e6e3de;
     padding: 10px 20px;
     width: 100%;
 }
@@ -59,31 +67,22 @@ nav.desktop ul li a .icon {
     vertical-align: middle; /* Align the icon with the text */
 }
 
-/* Add some padding to the body to prevent content from going under the fixed header */
+/* Add some padding to the body to prevent content from going under the fixed header and footer */
 body {
-    padding-top: 60px; /* Adjust this based on the height of the header */
-    padding-bottom: 60px;
-}
-
-body {
+    padding-top: 80px; /* Adjusted to prevent overlap with fixed header */
+    padding-bottom: 80px; /* Adjusted to prevent overlap with fixed footer */
+    margin: 0;
+    height: 100vh;
     --color-primary: #654a38;
     --color-primary-dark: #544235;
     --color-secondary: #252c6a;
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 4px;
-    margin: 0;
-    height: 100vh;
-
-    //background-image: url('../src/Images/Wallpaper1.png');
-    // display: flex; /* Commented out display flex to avoid layout issues */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* font-size: 18px; */
-    /* background: url(#); */
-    /* background-size: cover; */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Home page styles */
 .homePage {
     display: flex;
     flex-direction: column;
@@ -95,46 +94,29 @@ body {
     list-style-type: none;
 }
 
+/* Form container styling */
 .container {
     display: flex;
     justify-content: center;
     width: 400px;
     max-width: 400px;
-    margin: 1rem;
+    margin: 1rem auto; /* Centered the form horizontally */
     padding: 2rem;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
     background: #e3e0dc;
 }
 
+/* Typography */
 .container,
 .form__input,
 .form__button {
     font: 500 1rem 'Quicksand', sans-serif;
 }
 
-.container.dashboard--active {
-    width: auto;
-    max-width: none;
-    margin: inherit;
-    padding: unset;
-}
-
-.dashboard--active {
-    display: grid;
-    align-items: stretch;
-}
-
+/* Hidden elements */
 .form--hidden {
     display: none;
-}
-
-.form > *:first-child {
-    margin-top: 0;
-}
-
-.form > *:last-child {
-    margin-bottom: 0;
 }
 
 .form__title {
@@ -204,10 +186,6 @@ body {
     background: var(--color-primary-dark);
 }
 
-.form__button: {
-    transform: scale(0.98);
-}
-
 .form__text {
     text-align: center;
 }
@@ -222,14 +200,13 @@ body {
     text-decoration: underline;
 }
 
-/* homepage */
-
 /* Profile icon container */
 .profileIconContainer {
     position: relative; /* Ensure the dropdown is positioned relative to the profile icon */
+    width: min-content;
 }
 
-/* Initial state of the dropdown menu: hidden */
+/* Dropdown menu styles */
 .dropdownMenu {
     display: none;
     position: absolute;
@@ -240,7 +217,6 @@ body {
     z-index: 1000; /* Ensure the menu is on top of other elements */
 }
 
-/* Styling for dropdown menu items */
 .dropdownMenu a {
     display: block;
     padding: 10px;
@@ -248,136 +224,103 @@ body {
     text-decoration: none;
 }
 
-
 .dropdownMenu a:hover {
     background-color: #f1f1f1; /* Highlight menu item on hover */
 }
 
-/* Show the dropdown menu when hovering over the profile icon container */
-.profileIconContainer:hover .dropdownMenu {
-    display: block;
-}
-
-.prints {
-    position: relative;
+/* Swiper Styles */
+/* Added styles for Swiper.js carousel */
+.swiper-container {
     width: 100%;
-    box-shadow: none;
-    border-radius: unset;
+    height: auto;
+    margin: 0 auto;
 }
 
-.printsMain {
-    margin: 0rem 3rem;
+.swiper-wrapper {
+    align-items: center; /* Center the slides vertically */
 }
 
-.printsMain ul {
-    padding: 0;
+/* Swiper slide styling */
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* Center slide content vertically */
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column; /* Stack image and description */
     justify-content: center;
     align-items: center;
 }
 
-.printsMain li {
-    width: 25%;
-    display: inherit;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    background-color: #e6e3de;
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; /* Added rounded corners */
+    margin-bottom: 10px; /* Space between image and description */
 }
 
-.printsMain img {
-    width: 90%;
-    overflow: hidden;
+.swiper-slide p {
     margin: 0;
     padding: 0;
-    border: 0;
+    color: #333;
+    font-size: 14px;
 }
 
+/* Style the navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #654a38; /* Matches the primary color of the theme */
+}
+
+/* Style the pagination bullets */
+.swiper-pagination-bullet {
+    background: #654a38; /* Matches the primary color of the theme */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .swiper-slide {
+        font-size: 16px;
+    }
+    .swiper-slide img {
+        width: 100%;
+    }
+}
+
+/* Additional styling */
 .printsHeader {
     display: flex;
     background-color: #e6e3de;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* Added to vertically center items in header */
+    align-items: center; /* Vertically center items in header */
     border-radius: var(--border-radius);
-    outline: 1px solid black;
+    border-bottom: 1px solid #ccc; /* Added bottom border */
 }
 
 .printsHeader img {
     height: 60px;
 }
+
 .printsHeader ul {
-    padding: 0rem 1rem;
+    padding: 0 1rem;
     display: flex;
     list-style-type: none;
     gap: 3rem;
     flex-direction: row;
     flex-wrap: nowrap;
 }
-.printsHeader li, .printsHeader li div {
-    display: inline; 
-}
+
 .printsHeader a {
     color: inherit;
     text-decoration: none; /* Remove underline from the icons */
 }
 
-.logoIcon {
-    height: 60px;
-}
-.searchIconContainer {
-    width: min-content;
-}
-.profileIconContainer {
-    width: min-content;
-}
-.cartIconContainer {
-    width: min-content;
+/* Ensuring the carousel doesn't overlap header and footer */
+.swiper-container {
+    margin-top: 80px; /* Adjust to prevent overlap with fixed header */
+    margin-bottom: 80px; /* Adjust to prevent overlap with fixed footer */
 }
 
-/* Ensure icons are side by side */
-/* Adjust spacing between icons as needed */
-
-/* .printsHeader div:last-child {
-    display: flex; 
-    gap: 20px; 
-} */
-
-.printsFooter {
-    background-color: blue;
-}
-
-.spacerMain {
-    height: 10rem;
-}
-
-
-.loginMenu {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-logoIcon {
-    margin: 0;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    list-style-type: none;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-}
-
-.login-logoIcon li{
-    display: inline;
-}
-.login-logoIcon img{
-    height: 60px;
-}
-
+/* End of CSS code */

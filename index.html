@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Existing meta and title tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Login / Sign Up Form</title>
     <link rel="shortcut icon" href="#">
+
+    <!-- Swiper CSS added for the carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Your existing CSS -->
     <link rel="stylesheet" href="./src/main.css">
 </head>
 <body class=" " id="mainBody">
-    <div class="prints">
+    <!-- Added 'form--hidden' class to the prints div to hide it initially -->
+    <div class="prints form--hidden" id="prints">
         <header class="printsHeader">
-            <div class="logoIcon"><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.png" alt="Bird Logo"></a></div> <!-- Added alt text -->
+            <div class="logoIcon"><a href="/CODE/TEMP/index.html"><img src="src/Images/Bird2.png" alt="Bird Logo"></a></div>
             <ul>
                 <li>
                     <div class="profileIconContainer">
-                        <a class="profileIcon" href="#">Profile</a>
+                        <!-- Changed 'Profile' text to 'Dashboard' for consistency when logged in -->
+                        <a class="profileIcon" href="#" id="dashboardButton">Dashboard</a> <!-- Added id 'dashboardButton' -->
                         <div class="dropdownMenu" style="display: none;">
-                            <a class="loginButton ">Login</a>
-                            <a href="#">Sign Up</a>
-                            <a href="#" id="logoutButton">Logout</a>
+                            <a class="loginButton">Login</a>
+                            <a class="signupButton">Sign Up</a> <!-- Added class 'signupButton' -->
+                            <a href="#" id="logoutLink">Logout</a> <!-- Changed id from 'logoutButton' to 'logoutLink' for consistency -->
                         </div>
                     </div>
                 </li>
-
                 <li>
-                    <div class="searchIconContainer">   <!-- Added href to anchor tags -->
+                    <div class="searchIconContainer">
                         <a class="searchIcon" href="#">Search</a>
                     </div> 
                 </li>
-                
                 <li>
                     <div class="cartIconContainer">
                         <a class="cartIcon" href="#">Cart</a>
                     </div>
                 </li>
             </ul>
-            <div class="logoIcon"><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.flipped.png" alt="Bird Logo"></a></div> <!-- Added alt text -->
+            <div class="logoIcon"><a href="/CODE/TEMP/index.html"><img src="src/Images/Bird2.flipped.png" alt="Bird Logo"></a></div>
         </header>
-        <main class="printsMain">
-            <ul>
-            <!-- Canvases fill here dynamically -->
-            </ul>
-            <div class="spacerMain"></div>
-        </main>
+
+        <!-- Replaced 'printsMain' with Swiper carousel structure -->
+        <!-- Swiper Carousel -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slides will be added here dynamically -->
+            </div>
+            <!-- Pagination (dots indicating the slides) -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
-    <div class="container form--hidden" id="mainContainer">
-        <!--////////////////////////////////////////////   FIX THIS PATH    /////////////////////////////////// -->
-        <!-- Login Form Logo-->
-        <ul class="login-logoIcon">
-            <li>
-                <div><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.png"  alt="Bird Logo"></a></div> 
-            </li>
-            <li>
-                <div><a href="/CODE/All%20Practice/login-signup-form/index.html"><img src="src/Images/Bird2.flipped.png" alt="Bird Logo"></a></div> 
-            </li>
-        </ul>
+
+    <!-- Removed 'form--hidden' class from 'mainContainer' to show login forms initially -->
+    <div class="container" id="mainContainer">
         <!-- Login Form -->
-        <form class="form form--hidden" id="login">
+        <form class="form" id="login">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -64,7 +69,7 @@
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" id="loginPassword" class="form__input" placeholder="Password"> <!-- Removed duplicate autofocus -->
+                <input type="password" id="loginPassword" class="form__input" placeholder="Password">
                 <div class="form__input-error-message"></div>
             </div>
             <button class="form__button" type="submit">Continue</button>
@@ -72,7 +77,7 @@
                 <a href="#" class="form__link">Forgot your password?</a>
             </p>
             <p class="form__text">
-                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+                <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? Create account</a>
             </p>
         </form>
         <!-- Sign Up Form -->
@@ -84,15 +89,15 @@
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="email" id="signupEmail" class="form__input" placeholder="Email Address"> <!-- Changed type to email -->
+                <input type="email" id="signupEmail" class="form__input" placeholder="Email Address">
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" id="signupPassword" class="form__input" placeholder="Password"> <!-- Removed duplicate autofocus -->
+                <input type="password" id="signupPassword" class="form__input" placeholder="Password">
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" id="signupConfirmPassword" class="form__input" placeholder="Confirm password"> <!-- Removed duplicate autofocus -->
+                <input type="password" id="signupConfirmPassword" class="form__input" placeholder="Confirm password">
                 <div class="form__input-error-message"></div>
             </div>
             <button class="form__button" type="submit">Continue</button>
@@ -100,83 +105,37 @@
                 <a class="form__link" href="#" id="linkLogin">Already have an account? Sign in</a>
             </p>
         </form>
-        <!-- User Dashboard -->
-        <div class="dashboard form--hidden" id="userDashboard">
-            <header>
-                <div class="banner">
-                    <a href="#" class="desktop logo">Website Name</a>
-                    <nav class="desktop">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Settings <img class="icon" src="#" alt="Settings Icon"></a></li> <!-- Added alt text for the icon -->
-                            <li><button class="form__button" id="logoutButton">Logout</button></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-            <div class="homePage">
-                <ul>
-                    <li>
-                        <div>
-                            <h1>Welcome, <span id="userName"></span>!</h1>
-                            <p>You are now logged in.</p>
-                            <input type="file" id="photoFile" name="photoFile">
-                            <input type="text" id="photoName" name="photoName">
-                            <button class="upload__button" type="submit">Submit Photo</button><br>
-                            <!-- Photo upload form added -->
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    </div>
+
+    <!-- User Dashboard -->
+    <div class="dashboard form--hidden" id="userDashboard">
+        <!-- Removed the header inside the userDashboard to use the main header consistently -->
+        <div class="homePage">
+            <ul>
+                <li>
+                    <div>
+                        <h1>Welcome, <span id="userName"></span>!</h1>
+                        <p>You are now logged in.</p>
+                        <input type="file" id="photoFile" name="photoFile">
+                        <input type="text" id="photoName" name="photoName">
+                        <button class="upload__button" type="submit">Submit Photo</button><br>
+                        <!-- Photo upload form added -->
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <!-- Add the following script to handle the file upload and display the uploaded image dynamically -->
-    <script>
-        document.querySelector(".upload__button").addEventListener("click", async (e) => {
-            e.preventDefault();
-            const fileInput = document.getElementById('photoFile');
-            const fileName = document.getElementById('photoName').value;
-            const formData = new FormData();
-            formData.append('photoFile', fileInput.files[0]);
-            formData.append('photoName', fileName);
 
-            try {
-                const response = await fetch('http://localhost:3001/upload', {
-                    method: 'POST',
-                    body: formData
-                });
+    <!-- Moved the footer inside the body tag -->
+    <footer class="printsFooter ">
+        <p>footer Box</p>
+    </footer>
 
-                const result = await response.json();
-                if (response.ok) {
-                    console.log('File uploaded successfully');
-                    displayCanvas({ imageUrl: result.filePath, description: fileName });
-                } else {
-                    console.error(result.message);
-                    setFormMessage(null, 'error', 'Error uploading file');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                setFormMessage(null, 'error', 'Something went wrong. Please try again.');
-            }
-        });
-
-        function displayCanvas(canvas) {
-            const printsMain = document.querySelector('.printsMain ul');
-            const li = document.createElement('li');
-            const img = document.createElement('img');
-            const p = document.createElement('p');
-            img.src = canvas.imageUrl;
-            img.alt = 'Canvas Image';
-            p.textContent = canvas.description;
-            li.appendChild(img);
-            li.appendChild(p);
-            printsMain.appendChild(li);
-        }
-    </script>
+    <!-- Moved the script tags before the closing body tag -->
+    <!-- Your existing script -->
     <script src="./src/main.js"></script>
+
+    <!-- Swiper JS added for carousel functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </body>
-<footer class="printsFooter ">
-    <p>footer Box</p>
-</footer>
 </html>
